@@ -65,9 +65,9 @@ exports.Game = function () {
 
   var askQuestion = function () {
     if (currentCategory() == CATEGORIES.POP) console.log(popQuestions.shift());
-    if (currentCategory() == CATEGORIES.SCIENCE) console.log(scienceQuestions.shift());
-    if (currentCategory() == CATEGORIES.SPORTS) console.log(sportsQuestions.shift());
-    if (currentCategory() == CATEGORIES.ROCK) console.log(rockQuestions.shift());
+    else if (currentCategory() == CATEGORIES.SCIENCE) console.log(scienceQuestions.shift());
+    else if (currentCategory() == CATEGORIES.SPORTS) console.log(sportsQuestions.shift());
+    else console.log(rockQuestions.shift());
   };
 
   this.roll = function (roll) {
