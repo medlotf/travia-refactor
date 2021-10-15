@@ -1,0 +1,10 @@
+Lister les améliorations possibles : 
+-> Supprimer la methode createRockQuestion et remplacer rockQuestions.push(this.createRockQuestion(i)) par rockQuestions.push("Rock Question " + i);;
+-> la methode isPlayable() n'est pas appelé donc elle est à supprimer
+-> supprimer les méthodes inutiles par exemple la méthode howManyPlayers()
+-> Modifier les if par else if de la méthode AskQuestion() pour éviter de passer dans des boucles inutilement
+-> Creer une methode 
+-> Donner la possibilité à la méthode Add d'ajouter plusieurs joueurs en même temps en définissant le paramètre PlayersName comme un tableau et en faisant un forEach
+-> Remplacer les var par des let 
+-> Modifier le code pour creer des questions et les ranger dans les tableaux correspondant en évitant les répétitions de code : remplacer par exemple sportsQuestions.push("Sports Question " + i); par la généralité question.push(type + " Question " + index); 
+-> Remplacer l'appel de la methode didPlayerWin() par son résultat et supprimer cette méthode
