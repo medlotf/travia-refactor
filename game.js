@@ -1,13 +1,12 @@
 exports = typeof window !== "undefined" && window !== null ? window : global;
 
 exports.Game = function () {
-
   const CATEGORIES = {
     POP: "Pop",
     SCIENCE: "Science",
     SPORTS: "Sports",
-    ROCK: "Rock"
-  }
+    ROCK: "Rock",
+  };
 
   var players = new Array();
   var places = new Array(6);
@@ -46,12 +45,11 @@ exports.Game = function () {
     rockQuestions.push("Rock Question " + i);
   }
 
-
   this.add = function (playerName) {
     players.push(playerName);
-    places[this.howManyPlayers() - 1] = 0;
-    purses[this.howManyPlayers() - 1] = 0;
-    inPenaltyBox[this.howManyPlayers() - 1] = false;
+    places[this.players.length - 1] = 0;
+    purses[this.players.length - 1] = 0;
+    inPenaltyBox[this.players.length - 1] = false;
 
     console.log(playerName + " was added");
     console.log("They are player number " + players.length);
@@ -65,9 +63,12 @@ exports.Game = function () {
 
   var askQuestion = function () {
     if (currentCategory() == CATEGORIES.POP) console.log(popQuestions.shift());
-    if (currentCategory() == CATEGORIES.SCIENCE) console.log(scienceQuestions.shift());
-    if (currentCategory() == CATEGORIES.SPORTS) console.log(sportsQuestions.shift());
-    if (currentCategory() == CATEGORIES.ROCK) console.log(rockQuestions.shift());
+    if (currentCategory() == CATEGORIES.SCIENCE)
+      console.log(scienceQuestions.shift());
+    if (currentCategory() == CATEGORIES.SPORTS)
+      console.log(sportsQuestions.shift());
+    if (currentCategory() == CATEGORIES.ROCK)
+      console.log(rockQuestions.shift());
   };
 
   this.roll = function (roll) {
