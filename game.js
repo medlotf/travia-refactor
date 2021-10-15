@@ -8,24 +8,24 @@ exports.Game = function () {
     ROCK: "Rock",
   };
 
-  var players = new Array();
-  var places = new Array(6);
-  var purses = new Array(6);
-  var inPenaltyBox = new Array(6);
+  let players = new Array();
+  let places = new Array(6);
+  let purses = new Array(6);
+  let inPenaltyBox = new Array(6);
 
-  var popQuestions = new Array();
-  var scienceQuestions = new Array();
-  var sportsQuestions = new Array();
-  var rockQuestions = new Array();
+  let popQuestions = new Array();
+  let scienceQuestions = new Array();
+  let sportsQuestions = new Array();
+  let rockQuestions = new Array();
 
-  var currentPlayer = 0;
-  var isGettingOutOfPenaltyBox = false;
+  let currentPlayer = 0;
+  let isGettingOutOfPenaltyBox = false;
 
-  var didPlayerWin = function () {
+  let didPlayerWin = function () {
     return !(purses[currentPlayer] == 6);
   };
 
-  var currentCategory = function () {
+  let currentCategory = function () {
     if (places[currentPlayer] == 0) return CATEGORIES.POP;
     if (places[currentPlayer] == 4) return CATEGORIES.POP;
     if (places[currentPlayer] == 8) return CATEGORIES.POP;
@@ -38,7 +38,7 @@ exports.Game = function () {
     return CATEGORIES.ROCK;
   };
 
-  for (var i = 0; i < 50; i++) {
+  for (let i = 0; i < 50; i++) {
     popQuestions.push("Pop Question " + i);
     scienceQuestions.push("Science Question " + i);
     sportsQuestions.push("Sports Question " + i);
@@ -61,7 +61,7 @@ exports.Game = function () {
     return players.length;
   };
 
-  var askQuestion = function () {
+  let askQuestion = function () {
     if (currentCategory() == CATEGORIES.POP) console.log(popQuestions.shift());
 <<<<<<< HEAD
     else if (currentCategory() == CATEGORIES.SCIENCE) console.log(scienceQuestions.shift());
@@ -130,7 +130,7 @@ exports.Game = function () {
             " Gold Coins."
         );
 
-        var winner = didPlayerWin();
+        let winner = didPlayerWin();
         currentPlayer += 1;
         if (currentPlayer == players.length) currentPlayer = 0;
 
@@ -151,7 +151,7 @@ exports.Game = function () {
           " Gold Coins."
       );
 
-      var winner = didPlayerWin();
+      let winner = didPlayerWin();
 
       currentPlayer += 1;
       if (currentPlayer == players.length) currentPlayer = 0;
@@ -171,9 +171,9 @@ exports.Game = function () {
   };
 };
 
-var notAWinner = false;
+let notAWinner = false;
 
-var game = new Game();
+let game = new Game();
 
 game.add("Chet");
 game.add("Pat");
