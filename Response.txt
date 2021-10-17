@@ -17,3 +17,4 @@ Lister les améliorations possibles :
 -> Supprimer useless return: function add return boolean ??
 -> Correction du text retour : "There are X players" not "There are players X"
 -> AskQuestion : switch between console.log and return
+-> Créer variable playername dans la function roll
