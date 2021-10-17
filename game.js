@@ -70,6 +70,10 @@ exports.Game = function () {
     else console.log(rockQuestions.shift());
   };
 
+  let move = function (position) {
+    places[currentPlayer] = (currentPosition() + position) % NB_CELLS;
+  }
+
   this.roll = function (roll) {
     console.log(players[currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
@@ -79,10 +83,7 @@ exports.Game = function () {
         isGettingOutOfPenaltyBox = true;
 
         console.log(players[currentPlayer] + " is getting out of the penalty box");
-        places[currentPlayer] = currentPosition() + roll;
-        if (currentPosition() >= NB_CELLS) {
-          places[currentPlayer] = currentPosition() - NB_CELLS;
-        }
+        move(roll)
 
         console.log(players[currentPlayer] + "'s new location is " + currentPosition());
         console.log("The category is " + currentCategory());
@@ -92,10 +93,7 @@ exports.Game = function () {
         isGettingOutOfPenaltyBox = false;
       }
     } else {
-      places[currentPlayer] = currentPosition() + roll;
-      if (currentPosition() >= NB_CELLS) {
-        places[currentPlayer] = currentPosition() - NB_CELLS;
-      }
+      move(roll)
 
       console.log(players[currentPlayer] + "'s new location is " + currentPosition());
       console.log("The category is " + currentCategory());

@@ -11,3 +11,4 @@ Lister les améliorations possibles :
 -> Affichage avec console.log() en une seul ligne
 -> Definir variable global au lieu (NB_CELLS = 12) 
 -> Créer currentPosition() pour remplacer places[currentPlayer]
+-> Créer function move() pour supprimer la duplication du code
