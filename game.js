@@ -8,6 +8,8 @@ exports.Game = function () {
     ROCK: "Rock",
   };
 
+  const NB_CELLS = 12
+
   let players = new Array();
   let places = new Array(6);
   let purses = new Array(6);
@@ -74,8 +76,8 @@ exports.Game = function () {
 
         console.log(players[currentPlayer] + " is getting out of the penalty box");
         places[currentPlayer] = places[currentPlayer] + roll;
-        if (places[currentPlayer] > 11) {
-          places[currentPlayer] = places[currentPlayer] - 12;
+        if (places[currentPlayer] >= NB_CELLS) {
+          places[currentPlayer] = places[currentPlayer] - NB_CELLS;
         }
 
         console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
@@ -87,8 +89,8 @@ exports.Game = function () {
       }
     } else {
       places[currentPlayer] = places[currentPlayer] + roll;
-      if (places[currentPlayer] > 11) {
-        places[currentPlayer] = places[currentPlayer] - 12;
+      if (places[currentPlayer] >= NB_CELLS) {
+        places[currentPlayer] = places[currentPlayer] - NB_CELLS;
       }
 
       console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
