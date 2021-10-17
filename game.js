@@ -21,7 +21,6 @@ exports.Game = function () {
   let rockQuestions = new Array();
 
   let currentPlayer = 0;
-  let isGettingOutOfPenaltyBox = false;
 
   let currentPosition = function () {
     return places[currentPlayer]
@@ -79,26 +78,19 @@ exports.Game = function () {
 
     if (inPenaltyBox[currentPlayer]) {
       if (roll % 2 != 0) {
-        isGettingOutOfPenaltyBox = true;
-
+        inPenaltyBox[currentPlayer] = false;
         console.log(playerName + " is getting out of the penalty box");
-        move(roll)
-
-        console.log(playerName + "'s new location is " + currentPosition());
-        console.log("The category is " + currentCategory());
-        console.log(askQuestion(currentCategory()));
       } else {
         console.log(playerName + " is not getting out of the penalty box");
-        isGettingOutOfPenaltyBox = false;
+        return;
       }
-    } else {
-      move(roll)
-
-      console.log(playerName + "'s new location is " + currentPosition());
-      console.log("The category is " + currentCategory());
-      console.log(askQuestion(currentCategory()));
-
     }
+
+    move(roll)
+    console.log(playerName + "'s new location is " + currentPosition());
+    console.log("The category is " + currentCategory());
+    console.log(askQuestion(currentCategory()));
+
   };
 
   let nextPlayer = function() {
@@ -111,22 +103,11 @@ exports.Game = function () {
 
   this.wasCorrectlyAnswered = function () {
     if (inPenaltyBox[currentPlayer]) {
-      if (isGettingOutOfPenaltyBox) {
-        console.log("Answer was correct!!!!");
-        purses[currentPlayer] += 1;
-        console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
-
-        let gameContinues = !hasWon();
-        nextPlayer();
-
-        return gameContinues;
-      } else {
-        newtPlayer()
-        return true;
-      }
+      currentPlayer = nextPlayer();
+      return true;
     } else {
+      
       console.log("Answer was correct!!!!");
-
       purses[currentPlayer] += 1;
       console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 

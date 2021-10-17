@@ -20,3 +20,4 @@ Lister les améliorations possibles :
 -> Créer variable playername dans la function roll
 -> ajouter category dans parametre de la function AskQuestion
 -> Change method name from playerWon to hasWon et son utilité
+-> Vérification de l'utilité de isGettingOutOfPenaltyBox => SUPPRESSION (pas d'utilité, on peut utilisé inPenaltyBox[currentPlayer] )
