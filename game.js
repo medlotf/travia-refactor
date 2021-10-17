@@ -57,12 +57,12 @@ exports.Game = function () {
       console.log("There are " + players.length + " players");
   };
 
-  let askQuestion = function () {
-    if (currentCategory() == CATEGORIES.POP) 
+  let askQuestion = function (category) {
+    if (category == CATEGORIES.POP) 
       return popQuestions.shift()
-    else if (currentCategory() == CATEGORIES.SCIENCE)
+    else if (category == CATEGORIES.SCIENCE)
       return scienceQuestions.shift();
-    else if (currentCategory() == CATEGORIES.SPORTS)
+    else if (category == CATEGORIES.SPORTS)
       return sportsQuestions.shift();
     else 
       return rockQuestions.shift();
@@ -86,7 +86,7 @@ exports.Game = function () {
 
         console.log(playerName + "'s new location is " + currentPosition());
         console.log("The category is " + currentCategory());
-        console.log(askQuestion());
+        console.log(askQuestion(currentCategory()));
       } else {
         console.log(playerName + " is not getting out of the penalty box");
         isGettingOutOfPenaltyBox = false;
@@ -96,7 +96,7 @@ exports.Game = function () {
 
       console.log(playerName + "'s new location is " + currentPosition());
       console.log("The category is " + currentCategory());
-      console.log(askQuestion());
+      console.log(askQuestion(currentCategory()));
 
     }
   };
