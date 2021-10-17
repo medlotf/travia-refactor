@@ -58,12 +58,14 @@ exports.Game = function () {
   };
 
   let askQuestion = function () {
-    if (currentCategory() == CATEGORIES.POP) console.log(popQuestions.shift());
+    if (currentCategory() == CATEGORIES.POP) 
+      return popQuestions.shift()
     else if (currentCategory() == CATEGORIES.SCIENCE)
-      console.log(scienceQuestions.shift());
+      return scienceQuestions.shift();
     else if (currentCategory() == CATEGORIES.SPORTS)
-      console.log(sportsQuestions.shift());
-    else console.log(rockQuestions.shift());
+      return sportsQuestions.shift();
+    else 
+      return rockQuestions.shift();
   };
 
   let move = function (position) {
@@ -83,7 +85,7 @@ exports.Game = function () {
 
         console.log(players[currentPlayer] + "'s new location is " + currentPosition());
         console.log("The category is " + currentCategory());
-        askQuestion();
+        console.log(askQuestion());
       } else {
         console.log(players[currentPlayer] + " is not getting out of the penalty box");
         isGettingOutOfPenaltyBox = false;
@@ -93,7 +95,8 @@ exports.Game = function () {
 
       console.log(players[currentPlayer] + "'s new location is " + currentPosition());
       console.log("The category is " + currentCategory());
-      askQuestion();
+      console.log(askQuestion());
+
     }
   };
 
