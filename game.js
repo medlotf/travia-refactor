@@ -72,23 +72,17 @@ exports.Game = function () {
       if (roll % 2 != 0) {
         isGettingOutOfPenaltyBox = true;
 
-        console.log(
-          players[currentPlayer] + " is getting out of the penalty box"
-        );
+        console.log(players[currentPlayer] + " is getting out of the penalty box");
         places[currentPlayer] = places[currentPlayer] + roll;
         if (places[currentPlayer] > 11) {
           places[currentPlayer] = places[currentPlayer] - 12;
         }
 
-        console.log(
-          players[currentPlayer] + "'s new location is " + places[currentPlayer]
-        );
+        console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
         console.log("The category is " + currentCategory());
         askQuestion();
       } else {
-        console.log(
-          players[currentPlayer] + " is not getting out of the penalty box"
-        );
+        console.log(players[currentPlayer] + " is not getting out of the penalty box");
         isGettingOutOfPenaltyBox = false;
       }
     } else {
@@ -97,9 +91,7 @@ exports.Game = function () {
         places[currentPlayer] = places[currentPlayer] - 12;
       }
 
-      console.log(
-        players[currentPlayer] + "'s new location is " + places[currentPlayer]
-      );
+      console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
       console.log("The category is " + currentCategory());
       askQuestion();
     }
@@ -110,12 +102,7 @@ exports.Game = function () {
       if (isGettingOutOfPenaltyBox) {
         console.log("Answer was correct!!!!");
         purses[currentPlayer] += 1;
-        console.log(
-          players[currentPlayer] +
-            " now has " +
-            purses[currentPlayer] +
-            " Gold Coins."
-        );
+        console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
         let winner = !(purses[currentPlayer] == 6);
         currentPlayer += 1;
@@ -131,12 +118,7 @@ exports.Game = function () {
       console.log("Answer was correct!!!!");
 
       purses[currentPlayer] += 1;
-      console.log(
-        players[currentPlayer] +
-          " now has " +
-          purses[currentPlayer] +
-          " Gold Coins."
-      );
+      console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
       let winner = !(purses[currentPlayer] == 6);
 
