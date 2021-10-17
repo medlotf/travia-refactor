@@ -14,3 +14,4 @@ Lister les améliorations possibles :
 -> Créer function move() pour supprimer la duplication du code
 -> Créer function nextPlayer() et nettoyage des fonction wrong and correct answer
 -> Ajouter fonction playerHasWon() pour nettoyer le code
+-> Supprimer useless return: function add return boolean ??

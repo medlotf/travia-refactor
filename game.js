@@ -47,18 +47,14 @@ exports.Game = function () {
     rockQuestions.push("Rock Question " + i);
   }
 
-  this.add = function (playersName) {
-    playersName.forEach((playerName) => {
-      players.push(playerName);
+  this.add = function (playerName) {
+    players.push(playerName);
       places[players.length - 1] = 0;
       purses[players.length - 1] = 0;
       inPenaltyBox[players.length - 1] = false;
 
       console.log(playerName + " was added");
       console.log("They are player number " + players.length);
-
-      return true;
-    });
   };
 
   let askQuestion = function () {
@@ -152,7 +148,10 @@ let notAWinner = false;
 
 let game = new Game();
 
-game.add(["Chet", "Pat", "Sue"]);
+game.add("Chet");
+game.add("Pat");
+game.add("Sue");
+
 
 do {
   game.roll(Math.floor(Math.random() * 6) + 1);
