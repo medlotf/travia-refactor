@@ -23,16 +23,20 @@ exports.Game = function () {
   let currentPlayer = 0;
   let isGettingOutOfPenaltyBox = false;
 
+  let currentPosition = function () {
+    return places[currentPlayer]
+  }
+
   let currentCategory = function () {
-    if (places[currentPlayer] == 0) return CATEGORIES.POP;
-    if (places[currentPlayer] == 4) return CATEGORIES.POP;
-    if (places[currentPlayer] == 8) return CATEGORIES.POP;
-    if (places[currentPlayer] == 1) return CATEGORIES.SCIENCE;
-    if (places[currentPlayer] == 5) return CATEGORIES.SCIENCE;
-    if (places[currentPlayer] == 9) return CATEGORIES.SCIENCE;
-    if (places[currentPlayer] == 2) return CATEGORIES.SPORTS;
-    if (places[currentPlayer] == 6) return CATEGORIES.SPORTS;
-    if (places[currentPlayer] == 10) return CATEGORIES.SPORTS;
+    if (currentPosition() == 0) return CATEGORIES.POP;
+    if (currentPosition() == 4) return CATEGORIES.POP;
+    if (currentPosition() == 8) return CATEGORIES.POP;
+    if (currentPosition() == 1) return CATEGORIES.SCIENCE;
+    if (currentPosition() == 5) return CATEGORIES.SCIENCE;
+    if (currentPosition() == 9) return CATEGORIES.SCIENCE;
+    if (currentPosition() == 2) return CATEGORIES.SPORTS;
+    if (currentPosition() == 6) return CATEGORIES.SPORTS;
+    if (currentPosition() == 10) return CATEGORIES.SPORTS;
     return CATEGORIES.ROCK;
   };
 
@@ -75,12 +79,12 @@ exports.Game = function () {
         isGettingOutOfPenaltyBox = true;
 
         console.log(players[currentPlayer] + " is getting out of the penalty box");
-        places[currentPlayer] = places[currentPlayer] + roll;
-        if (places[currentPlayer] >= NB_CELLS) {
-          places[currentPlayer] = places[currentPlayer] - NB_CELLS;
+        places[currentPlayer] = currentPosition() + roll;
+        if (currentPosition() >= NB_CELLS) {
+          places[currentPlayer] = currentPosition() - NB_CELLS;
         }
 
-        console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
+        console.log(players[currentPlayer] + "'s new location is " + currentPosition());
         console.log("The category is " + currentCategory());
         askQuestion();
       } else {
@@ -88,12 +92,12 @@ exports.Game = function () {
         isGettingOutOfPenaltyBox = false;
       }
     } else {
-      places[currentPlayer] = places[currentPlayer] + roll;
-      if (places[currentPlayer] >= NB_CELLS) {
-        places[currentPlayer] = places[currentPlayer] - NB_CELLS;
+      places[currentPlayer] = currentPosition() + roll;
+      if (currentPosition() >= NB_CELLS) {
+        places[currentPlayer] = currentPosition() - NB_CELLS;
       }
 
-      console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
+      console.log(players[currentPlayer] + "'s new location is " + currentPosition());
       console.log("The category is " + currentCategory());
       askQuestion();
     }
