@@ -15,3 +15,4 @@ Lister les améliorations possibles :
 -> Créer function nextPlayer() et nettoyage des fonction wrong and correct answer
 -> Ajouter fonction playerHasWon() pour nettoyer le code
 -> Supprimer useless return: function add return boolean ??
+-> Correction du text retour : "There are X players" not "There are players X"

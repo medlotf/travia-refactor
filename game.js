@@ -54,7 +54,7 @@ exports.Game = function () {
       inPenaltyBox[players.length - 1] = false;
 
       console.log(playerName + " was added");
-      console.log("They are player number " + players.length);
+      console.log("There are " + players.length + " players");
   };
 
   let askQuestion = function () {
