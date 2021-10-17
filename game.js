@@ -101,6 +101,10 @@ exports.Game = function () {
     }
   };
 
+  let nextPlayer = function() {
+    return (currentPlayer + 1) % players.length;
+  }
+
   this.wasCorrectlyAnswered = function () {
     if (inPenaltyBox[currentPlayer]) {
       if (isGettingOutOfPenaltyBox) {
@@ -109,13 +113,11 @@ exports.Game = function () {
         console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
         let winner = !(purses[currentPlayer] == 6);
-        currentPlayer += 1;
-        if (currentPlayer == players.length) currentPlayer = 0;
+        newtPlayer()
 
         return winner;
       } else {
-        currentPlayer += 1;
-        if (currentPlayer == players.length) currentPlayer = 0;
+        newtPlayer()
         return true;
       }
     } else {
@@ -126,8 +128,7 @@ exports.Game = function () {
 
       let winner = !(purses[currentPlayer] == 6);
 
-      currentPlayer += 1;
-      if (currentPlayer == players.length) currentPlayer = 0;
+      nextPlayer()
 
       return winner;
     }
@@ -138,8 +139,7 @@ exports.Game = function () {
     console.log(players[currentPlayer] + " was sent to the penalty box");
     inPenaltyBox[currentPlayer] = true;
 
-    currentPlayer += 1;
-    if (currentPlayer == players.length) currentPlayer = 0;
+    nextPlayer()
     return true;
   };
 };

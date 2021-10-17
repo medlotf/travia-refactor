@@ -12,3 +12,4 @@ Lister les améliorations possibles :
 -> Definir variable global au lieu (NB_CELLS = 12) 
 -> Créer currentPosition() pour remplacer places[currentPlayer]
 -> Créer function move() pour supprimer la duplication du code
+-> Créer function nextPlayer() et nettoyage des fonction wrong and correct answer
