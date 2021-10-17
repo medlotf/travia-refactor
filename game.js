@@ -21,10 +21,6 @@ exports.Game = function () {
   let currentPlayer = 0;
   let isGettingOutOfPenaltyBox = false;
 
-  let didPlayerWin = function () {
-    return !(purses[currentPlayer] == 6);
-  };
-
   let currentCategory = function () {
     if (places[currentPlayer] == 0) return CATEGORIES.POP;
     if (places[currentPlayer] == 4) return CATEGORIES.POP;
@@ -45,36 +41,27 @@ exports.Game = function () {
     rockQuestions.push("Rock Question " + i);
   }
 
-  this.add = function (playerName) {
-    players.push(playerName);
-    places[this.players.length - 1] = 0;
-    purses[this.players.length - 1] = 0;
-    inPenaltyBox[this.players.length - 1] = false;
+  this.add = function (playersName) {
+    playersName.forEach((playerName) => {
+      players.push(playerName);
+      places[players.length - 1] = 0;
+      purses[players.length - 1] = 0;
+      inPenaltyBox[players.length - 1] = false;
 
-    console.log(playerName + " was added");
-    console.log("They are player number " + players.length);
+      console.log(playerName + " was added");
+      console.log("They are player number " + players.length);
 
-    return true;
-  };
-
-  this.howManyPlayers = function () {
-    return players.length;
+      return true;
+    });
   };
 
   let askQuestion = function () {
     if (currentCategory() == CATEGORIES.POP) console.log(popQuestions.shift());
-<<<<<<< HEAD
-    else if (currentCategory() == CATEGORIES.SCIENCE) console.log(scienceQuestions.shift());
-    else if (currentCategory() == CATEGORIES.SPORTS) console.log(sportsQuestions.shift());
-    else console.log(rockQuestions.shift());
-=======
-    if (currentCategory() == CATEGORIES.SCIENCE)
+    else if (currentCategory() == CATEGORIES.SCIENCE)
       console.log(scienceQuestions.shift());
-    if (currentCategory() == CATEGORIES.SPORTS)
+    else if (currentCategory() == CATEGORIES.SPORTS)
       console.log(sportsQuestions.shift());
-    if (currentCategory() == CATEGORIES.ROCK)
-      console.log(rockQuestions.shift());
->>>>>>> 45319071d7b366941279ef5471d269e7e978e923
+    else console.log(rockQuestions.shift());
   };
 
   this.roll = function (roll) {
@@ -130,7 +117,7 @@ exports.Game = function () {
             " Gold Coins."
         );
 
-        let winner = didPlayerWin();
+        let winner = !(purses[currentPlayer] == 6);
         currentPlayer += 1;
         if (currentPlayer == players.length) currentPlayer = 0;
 
@@ -151,7 +138,7 @@ exports.Game = function () {
           " Gold Coins."
       );
 
-      let winner = didPlayerWin();
+      let winner = !(purses[currentPlayer] == 6);
 
       currentPlayer += 1;
       if (currentPlayer == players.length) currentPlayer = 0;
@@ -175,9 +162,7 @@ let notAWinner = false;
 
 let game = new Game();
 
-game.add("Chet");
-game.add("Pat");
-game.add("Sue");
+game.add(["Chet", "Pat", "Sue"]);
 
 do {
   game.roll(Math.floor(Math.random() * 6) + 1);
