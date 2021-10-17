@@ -21,3 +21,7 @@ Lister les améliorations possibles :
 -> ajouter category dans parametre de la function AskQuestion
 -> Change method name from playerWon to hasWon et son utilité
 -> Vérification de l'utilité de isGettingOutOfPenaltyBox => SUPPRESSION (pas d'utilité, on peut utilisé inPenaltyBox[currentPlayer] )
+----------------------- A FAIRE ------------------------
+-> Refactor popQuestions, sportsQuestion, rockQuest, ScienceQuest dans un seul tableau d'objets
+-> séparer les class: player, Question, Board, Main
+-> Renommer les methods

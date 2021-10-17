@@ -9,6 +9,7 @@ exports.Game = function () {
   };
 
   const NB_CELLS = 12
+  const NB_QUESTIONS = 12
 
   let players = new Array();
   let places = new Array(6);
@@ -39,7 +40,7 @@ exports.Game = function () {
     return CATEGORIES.ROCK;
   };
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < NB_QUESTIONS; i++) {
     popQuestions.push("Pop Question " + i);
     scienceQuestions.push("Science Question " + i);
     sportsQuestions.push("Sports Question " + i);
