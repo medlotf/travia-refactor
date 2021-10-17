@@ -105,7 +105,7 @@ exports.Game = function () {
     return (currentPlayer + 1) % players.length;
   }
 
-  let playerWon = function() {
+  let hasWon = function() {
     return purses[currentPlayer] != 6;
   }
 
@@ -116,10 +116,10 @@ exports.Game = function () {
         purses[currentPlayer] += 1;
         console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
-        let winner = playerWon();
-        newtPlayer()
+        let gameContinues = !hasWon();
+        nextPlayer();
 
-        return winner;
+        return gameContinues;
       } else {
         newtPlayer()
         return true;
@@ -130,11 +130,10 @@ exports.Game = function () {
       purses[currentPlayer] += 1;
       console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
-      let winner = playerWon();
+      let gameContinues = !hasWon();
+      nextPlayer();
 
-      nextPlayer()
-
-      return winner;
+      return gameContinues;
     }
   };
 
