@@ -105,6 +105,10 @@ exports.Game = function () {
     return (currentPlayer + 1) % players.length;
   }
 
+  let playerWon = function() {
+    return purses[currentPlayer] != 6;
+  }
+
   this.wasCorrectlyAnswered = function () {
     if (inPenaltyBox[currentPlayer]) {
       if (isGettingOutOfPenaltyBox) {
@@ -112,7 +116,7 @@ exports.Game = function () {
         purses[currentPlayer] += 1;
         console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
-        let winner = !(purses[currentPlayer] == 6);
+        let winner = playerWon();
         newtPlayer()
 
         return winner;
@@ -126,7 +130,7 @@ exports.Game = function () {
       purses[currentPlayer] += 1;
       console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
 
-      let winner = !(purses[currentPlayer] == 6);
+      let winner = playerWon();
 
       nextPlayer()
 
